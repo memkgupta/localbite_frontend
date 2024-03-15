@@ -14,7 +14,7 @@ const [formData,setFormData] = useState({
     password:''
 });
 const router = useRouter();
-const {auth_status} = useUser();
+const {auth_status,setAuthStatus,setUser} = useUser();
 const handleChange = (e:React.ChangeEvent<HTMLInputElement>)=>{
     setFormData(prev=>({...prev,[e.target.name]:e.target.value}))
 }
@@ -29,6 +29,8 @@ const handleSubmit =async(e: React.FormEvent<HTMLFormElement>)=>{
         else{
             toast.success('Login Successful');
             Cookie.set('token',res.data.token,{expires:1});
+            setAuthStatus(true);
+            
             router.replace('/')
         }
     } catch (error:any) {

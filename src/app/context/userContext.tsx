@@ -1,6 +1,6 @@
 
 'use client';
-import React, { Dispatch, SetStateAction, createContext, use, useContext, useState } from "react";
+import  {  createContext, useContext, useState } from "react";
 type user = {    
     name:string,
     email:string,
